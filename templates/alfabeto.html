@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Alfabeto Dactilográfico</title>
+     <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css')}}"/>
+</head>
+<body>
+     <header>
+        <button class="btn-inicio">Inicio</button>
+        <button class="btn-diccionario">Diccionario</button>
+    </header>
+    <div>
+        <button id="startButton">Comenzar Detección en Tiempo Real</button>
+        <button id="stopButton" style="display:none;">Detener Detección</button>
+        <button id=cargarButton onclick="window.location.href='/cargarimagen'">Carga archivo para deteccion</button>
+    </div>
+    <div>
+        <video id="videoElement" width="640" height="480" autoplay style="display:none;"></video>
+    </div>
+    <script>
+        document.getElementById('startButton').addEventListener('click', function() {
+            document.getElementById('videoElement').style.display = 'block';
+            document.getElementById('stopButton').style.display = 'inline';
+            var video = document.getElementById('videoElement');
+            if (navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices.getUserMedia({ video: true })
+                    .then(function (stream) {
+                        video.srcObject = stream;
+                    })
+                    .catch(function (error) {
+                        console.log("Something went wrong!");
+                    });
+            }
+        });
+
+        document.getElementById('stopButton').addEventListener('click', function() {
+            var video = document.getElementById('videoElement');
+            video.srcObject.getTracks().forEach(track => track.stop());
+            document.getElementById('videoElement').style.display = 'none';
+            document.getElementById('stopButton').style.display = 'none';
+        });
+    </script>
+</body>
+</html>

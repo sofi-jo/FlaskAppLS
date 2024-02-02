@@ -1,0 +1,52 @@
+/* Estilos generales para centrar el contenido */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: #79CBCC;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end; /* Ajustamos los botones a la derecha */
+    width: 100%;
+}
+/* Estilos para el título */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para el campo de entrada de archivo */
+input[type="file"] {
+    margin-bottom: 20px;
+}
+
+/* Estilos para la vista previa de la imagen */
+#imagenPreview {
+    max-width: 300px;
+    max-height: 300px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para el botón de guardar */
+input[type="submit"] {
+    background-color: #79CBCC;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Estilo para ocultar el botón de guardar inicialmente */
+#guardarButton {
+    display: none;
+}

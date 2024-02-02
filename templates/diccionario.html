@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8">
+ <title>Traducción del lenguaje de señas</title>
+ <link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css')}}"/>
+</head>
+<body>
+ <header>
+    <nav>
+    <img src="{{ url_for('static', filename='images/logo.png')}}" alt="Logo" class="logo">
+    <ul class="menu">
+        <a href="/diccionario">Diccionario</a>
+        <a href="/gestos">Gestos</a>
+        <a href="/home">Inicio</a>
+    </ul>  
+    </nav>
+ </header>
+ <main>
+    <h1>Traducción de gestos lenguaje de señas</h1>
+    <img src={{ url_for('static', filename='/images/abecedar.jpg')}} alt="Lenguaje de señas">
+    <ul class="deteccion">
+        <section>
+            <h3>Carga de archivos</h3>
+            <form action="/path/to/your/server-side-script" method="post" enctype="multipart/form-data">
+              <label for="fileToUpload">Selecciona el archivo:</label>
+              <input type="file" id="fileToUpload" name="fileToUpload" />
+              <input type="submit" value="Carga" name="submit">
+            </form>
+          </section>
+          <section>
+            <h3>Detección en tiempo real</h3>
+            <a href="/deteccionabc" class="boton">Abrir cámara</a>
+          </section>
+    </ul> 
+ </main>
+</body>
+</html>

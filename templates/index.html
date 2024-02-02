@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Traducción del lenguaje de señas</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css')}}"/>
+</head>
+<body>
+  <header>
+    <nav>
+    <img src="{{ url_for('static', filename='images/logo.png')}}" alt="Logo" class="logo">
+    <ul class="menu">
+        <a href="/diccionario">Diccionario</a>
+        <a href="/gestos">Gestos</a>
+        <a href="/home">Inicio</a>
+    </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>Traducción del lenguaje de señas</h1>
+    <img src="{{ url_for('static', filename='images/lsimag.jpg')}}" alt="Lenguaje de señas">
+    <p>Este es un sistema de traducción del lenguaje de señas. Para el uso de este se puede realizar detección del abecedario dactilográfico que son las letras del lenguaje de señas o a su vez en el apartado de gestos de lenguaje de señas puedes detectar sus gestos principales.</p>
+    <ul class="deteccion">
+        <section>
+            <h3>Alfabeto dactilográfico</h3>
+            <a href="/diccionario" class="boton">Detección Alfabeto</a>
+          </section>
+          <section>
+            <h3>Gestos Principales</h3>
+            <a href="/gestos" class="boton">Detección de Gestos</a>
+          </section>
+    </ul>
+  </main>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+      <meta charset="UTF-8">
+      <title>Detección de gestos en tiempo real</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='styles/deteccioncam.css')}}"/>
+   </head>
+   <body>
+      <header>
+         <nav>
+            <img src="{{ url_for('static', filename='images/logo.png')}}" alt="Logo" class="logo">
+            <ul class="menu">
+               <a href="/diccionario">Diccionario</a>
+               <a href="/gestos">Gestos</a>
+               <a href="/home">Inicio</a>
+            </ul>
+         </nav>
+      </header>
+      <main>
+         <h1>Detección de letras en tiempo real</h1>
+         <section>
+            <img src="{{ url_for('deteccion_abc') }}"   alt="Upload video">
+         </section>
+      </main>
+   </body>
+</html>

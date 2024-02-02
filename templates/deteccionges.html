@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+      <meta charset="UTF-8">
+      <title>Detección de gestos en tiempo real</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='styles/deteccioncam.css')}}"/>
+   </head>
+   <body>
+      <header>
+         <nav>
+            <img src="{{ url_for('static', filename='images/logo.png')}}" alt="Logo" class="logo">
+            <ul class="menu">
+               <a href="/diccionario">Diccionario</a>
+               <a href="/gestos">Gestos</a>
+               <a href="/home">Inicio</a>
+            </ul>
+         </nav>
+      </header>
+      <main>
+         <h1>Detección de gestos en tiempo real</h1>
+         <script>
+            // Función para iniciar la detección en tiempo real
+            async function iniciarDeteccion() {
+                const videoElement = document.createElement('video');
+                videoElement.autoplay = true;
+                document.body.appendChild(videoElement);
+
+                try {
+                    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                    videoElement.srcObject = stream;
+
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.width = videoElement.videoWidth;
+                    canvas.height = videoElement.videoHeight;
+                    document.body.appendChild(canvas);
+
+                    const socket = new WebSocket('ws://127.0.0.1:5000/video_feed'); // Conexión WebSocket a tu servidor Flask
+
+                    videoElement.addEventListener('play', () => {
+                        setInterval(() => {
+                            context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+                            const imageData = canvas.toDataURL('image/jpeg');
+                            socket.send(imageData); // Envía la imagen al servidor Flask
+                        }, 100);
+                    });
+                } catch (err) {
+                    console.error('Error al obtener acceso a la cámara:', err);
+                }
+            }
+
+            // Llamada a la función de inicio al cargar la página
+            window.onload = iniciarDeteccion;
+         </script>
+      </main>
+   </body>
+</html>

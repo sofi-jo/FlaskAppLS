@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Traducción del lenguaje de señas</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css')}}"/>
+</head>
+<body>
+  <header>
+    <nav>
+      <img src="{{ url_for('static', filename='images/logo.png')}}" alt="Logo" class="logo">
+      <ul class="menu">
+          <a href="/diccionario">Diccionario</a>
+          <a href="/gestos">Gestos</a>
+          <a href="/home">Inicio</a>
+      </ul> 
+  </header>
+  <main>
+    <h1>Traducción de gestos lenguaje de señas</h1>
+    <img src="{{ url_for('static', filename='images/gestos.jpg')}}"" alt="Lenguaje de señas">
+    <ul class="deteccion">
+        <section>
+            <h3>Carga de archivos</h3>
+            <a href="carga.html" class="boton">Seleccionar Archivo</a>
+          </section>
+          <section>
+            <h3>Detección en tiempo real</h3>
+            <a href="detecciongestos.html" class="boton">Abrir cámara</a>
+          </section>
+    </ul> 
+  </main>
+</body>
+</html>
